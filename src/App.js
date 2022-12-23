@@ -1,13 +1,10 @@
-import { Avatar, Box, Container, createTheme, Grid, IconButton, Modal, Button, Tab, Tabs, ThemeProvider, ToggleButton, ToggleButtonGroup, Typography, ButtonGroup } from "@mui/material";
-// import { Box } from "@mui/system";
+import { Avatar, Box, Container, Grid, IconButton, Modal, Button, ToggleButton, Typography, ButtonGroup } from "@mui/material";
 import React, { useState } from "react";
 import { MyAppBar } from "./component/app-bar";
 import { DefaultContext } from "./Context";
 import { goods } from "./db";
-import { ReactComponent as CloseButton } from './component/icons/icon-close.svg';
 import { ReactComponent as MinusButton } from './component/icons/icon-minus.svg';
 import { ReactComponent as PlusButton } from './component/icons/icon-plus.svg';
-// import {ReactComponent as CartButton} from './component/icons/icon-cart.svg';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -17,10 +14,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 600,
-  // bgcolor: 'background.paper',
   bgcolor: 'rgba(0, 0, 0, .0)',
-  // border: '2px solid #000',
-  // boxShadow: 24,
   p: 4,
 };
 
@@ -49,8 +43,6 @@ function App() {
   const addToCart = () => {
     if (amount !== 0)
       if ('fles' in cart) {
-        // cart.fles += 1;
-        // console.log(123123123);
         setCart({
           ...cart,
           fles: cart.fles + amount
@@ -70,7 +62,7 @@ function App() {
 
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{paddingTop: '5rem', paddingX: '3rem'}}>
           <Grid item xs={6} sx={{paddingRight: '5rem'}}>
-            <img onClick={handleOpen} src={`${link}`} width='100%' style={{borderRadius: '4%', marginBottom: '2rem'}} />
+            <img onClick={handleOpen} src={`${link}`} width='100%' style={{borderRadius: '4%', marginBottom: '2rem'}} alt="Product" />
 
             <Grid container spacing={5} columns={4}>
               {goods.fles.imageUrls.map((image) => (
@@ -106,7 +98,6 @@ function App() {
               sx={{
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
-                // fontFamily: 'monospace',
                 fontWeight: 700,
                 letterSpacing: '.1rem',
                 color: 'black',
@@ -150,12 +141,10 @@ function App() {
               variant="h6"
               sx={{
                 mr: 2,
-                // display: 'inline',
                 letterSpacing: '.1rem',
                 color: 'lightgrey',
                 textDecoration: 'line-through',
                 fontWeight: 'bold',
-                // marginTop: '1rem'
               }}
             >
               ${goods.fles.price}
@@ -184,7 +173,7 @@ function App() {
             </IconButton>
           </Box>
           <Grid item xs={6}>
-            <img onClick={handleOpen} src={`${linkLightBox}`} width='100%' style={{borderRadius: '4%', marginBottom: '2rem'}} />
+            <img onClick={handleOpen} src={`${linkLightBox}`} width='100%' style={{borderRadius: '4%', marginBottom: '2rem'}} alt="Product" />
 
             <Grid container spacing={{ xs: 0, sm: 0, md: 0 }} columns={4} sx={{paddingLeft: '3.3rem'}}>
               {goods.fles.imageUrls.map((image) => (
